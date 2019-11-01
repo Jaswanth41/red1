@@ -1,0 +1,49 @@
+<!-- <form action="https://docs.google.com/spreadsheets/d/1f4kqkFFrneGnwFmv5KC2w4mY2rvKxD-Bh8pi2KoTdB4/edit#gid=382925128" method="POST" id="ss-form" target="_self" onsubmit=""><ol style="padding-left: 0">  -->
+   
+  <!DOCTYPE html>
+<html crossorigin="anonymous">
+  <head>
+      
+</head>
+<body>
+       <!-- target="_self" action="https://docs.google.com/forms/d/e/1FAIpQLScrEj-XoUBpAy3XWmgXreT4jifUVF-wRhWTbztvYHvZ8SmKpg/formResponse"-->
+<form   method="POST" >
+  
+<input id="ActionItem" name="ActionItem" type="text" placeholder="ActionItem" crossorigin="anonymous"><br>
+
+<button id="ButtonSubmit" type="button" onclick="google()" crossorigin="anonymous" >Send</button> 
+
+</form>
+
+</body>
+
+<script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+<script >
+
+    function google() {
+      
+      var ActionItem=document.getElementById("ActionItem").value;
+      console.log(ActionItem);
+      
+  
+          $.ajax({
+              url: "https://docs.google.com/forms/d/e/1FAIpQLScrEj-XoUBpAy3XWmgXreT4jifUVF-wRhWTbztvYHvZ8SmKpg/formResponse",
+              data: { 
+                      "ACTION ITEM": ActionItem
+                      
+                     },
+                     
+              type: "POST",
+              dataType: "xml",
+              statusCode: {
+                 0: function () {
+                      //window.location.replace("ThankYou.html");
+                  },
+                  200: function () {
+                      //window.location.replace("ThankYou.html");
+                  }
+              }
+          });
+  }
+  </script>
+</html>
